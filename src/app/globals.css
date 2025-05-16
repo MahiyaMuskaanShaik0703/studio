@@ -126,7 +126,7 @@
        The current --background is a solid color.
        You can set a background image on the body here for a better glass effect, e.g.:
        background-image: linear-gradient(to right bottom, hsl(200, 80%, 70%), hsl(280, 70%, 60%));
-       background-attachment: fixed; /* Important for blur effect */
+       background-attachment: fixed;
     */
   }
 }
