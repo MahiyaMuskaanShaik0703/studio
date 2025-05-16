@@ -130,22 +130,3 @@
     */
   }
 }
-
-/*
-  Note on backdrop-filter for Glassmorphism:
-  The CSS variables above set up the transparent backgrounds and subtle borders.
-  To achieve the characteristic blur effect of glassmorphism, you need to apply
-  the `backdrop-filter: blur()` CSS property.
-
-  With Tailwind CSS, you can do this by adding classes like `backdrop-blur-sm`,
-  `backdrop-blur-md`, or `backdrop-blur-lg` directly to the components where you
-  want the glass effect.
-
-  For example, for a ShadCN Card component, you would add classes like:
-  `backdrop-blur-md shadow-lg`
-
-  And for a DialogContent, similarly:
-  `backdrop-blur-md shadow-lg`
-
-  You might also want to add a `shadow-lg` or similar for a lifted effect.
-*/
