@@ -8,6 +8,7 @@ import { TaskItemMenu } from "./TaskItemMenu";
 import { format, isPast, isToday } from "date-fns";
 import { CalendarDays, Clock3, ChevronUp, Minus, ChevronDown, Info } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { cn } from "@/lib/utils";
 
 interface TaskCardProps {
   task: Task;
@@ -47,7 +48,12 @@ export function TaskCard({ task, onToggleComplete, onEdit, onDelete, onDragStart
       draggable 
       onDragStart={(e) => onDragStart(e, task)}
       onDragEnd={onDragEnd}
-      className={`mb-4 shadow-md hover:shadow-lg transition-shadow cursor-grab ${isCompleted ? "bg-muted/50 opacity-70" : "bg-card"}`}
+      className={cn(
+        "mb-4 shadow-xl hover:shadow-2xl transition-shadow cursor-grab backdrop-blur-lg border border-white/10 dark:border-white/5",
+        isCompleted 
+          ? "bg-muted bg-opacity-40 dark:bg-opacity-30 opacity-70" 
+          : "bg-card bg-opacity-60 dark:bg-opacity-40"
+      )}
       data-task-id={task.id}
     >
       <CardHeader className="flex flex-row items-start justify-between pb-3">
@@ -89,12 +95,12 @@ export function TaskCard({ task, onToggleComplete, onEdit, onDelete, onDragStart
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
-                <div className="flex items-start text-xs text-blue-600 bg-blue-50 p-2 rounded-md border border-blue-200">
+                <div className="flex items-start text-xs text-blue-600 bg-blue-50/70 dark:bg-blue-900/70 p-2 rounded-md border border-blue-200/50 dark:border-blue-700/50 backdrop-blur-sm">
                   <Info className="h-4 w-4 mr-2 shrink-0 mt-0.5" />
                   <p className="italic">{task.aiReasoning}</p>
                 </div>
               </TooltipTrigger>
-              <TooltipContent>
+              <TooltipContent className="bg-card bg-opacity-80 dark:bg-opacity-60 backdrop-blur-md border-white/20 dark:border-neutral-700/30">
                 <p>AI Prioritization Reasoning</p>
               </TooltipContent>
             </Tooltip>

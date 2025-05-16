@@ -31,7 +31,7 @@ export function AIPrioritizationDialog({ isOpen, onClose, onPrioritize, isPriori
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="sm:max-w-[480px]">
+      <DialogContent className="sm:max-w-[480px] bg-card bg-opacity-70 dark:bg-opacity-50 backdrop-blur-xl shadow-2xl border border-white/10 dark:border-white/5">
         <DialogHeader>
           <DialogTitle className="flex items-center">
             <Wand2 className="mr-2 h-5 w-5 text-primary" />
@@ -50,6 +50,7 @@ export function AIPrioritizationDialog({ isOpen, onClose, onPrioritize, isPriori
               value={userProfile}
               onChange={(e) => setUserProfile(e.target.value)}
               rows={5}
+              className="bg-background/50 dark:bg-background/30 border-white/20 dark:border-neutral-700/40 focus:border-primary/50"
             />
           </div>
         </div>

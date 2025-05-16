@@ -136,10 +136,10 @@ export default function DayWeaverPage() {
   const completedTasksCount = tasks.filter((task) => task.status === "completed").length;
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col items-center p-4 md:p-8 selection:bg-primary/20">
+    <div className="min-h-screen flex flex-col items-center p-4 md:p-8 selection:bg-primary/20">
       <Header />
       <main className="w-full max-w-3xl mt-4 md:mt-8 space-y-6">
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 p-4 bg-card rounded-lg shadow">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 p-4 rounded-lg shadow-xl bg-card bg-opacity-60 dark:bg-opacity-40 backdrop-blur-lg border border-white/10 dark:border-white/5">
           <p className="text-muted-foreground text-center sm:text-left">
             Organize your day, achieve your goals.
           </p>

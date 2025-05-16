@@ -54,6 +54,8 @@ interface TaskFormProps {
   initialData?: Task | null;
 }
 
+const inputTextAreaBaseClass = "bg-background/50 dark:bg-background/30 border-white/20 dark:border-neutral-700/40 focus:border-primary/50";
+
 export function TaskForm({ isOpen, onClose, onSubmit, initialData }: TaskFormProps) {
   const form = useForm<TaskFormValues>({
     resolver: zodResolver(taskFormSchema),
@@ -103,7 +105,7 @@ export function TaskForm({ isOpen, onClose, onSubmit, initialData }: TaskFormPro
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="sm:max-w-[480px]">
+      <DialogContent className="sm:max-w-[480px] bg-card bg-opacity-70 dark:bg-opacity-50 backdrop-blur-xl shadow-2xl border border-white/10 dark:border-white/5">
         <DialogHeader>
           <DialogTitle>{initialData ? "Edit Task" : "Add New Task"}</DialogTitle>
           <DialogDescription>
@@ -119,7 +121,7 @@ export function TaskForm({ isOpen, onClose, onSubmit, initialData }: TaskFormPro
                 <FormItem>
                   <FormLabel>Task Name</FormLabel>
                   <FormControl>
-                    <Input placeholder="E.g., Finish project report" {...field} />
+                    <Input placeholder="E.g., Finish project report" {...field} className={inputTextAreaBaseClass} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -132,7 +134,7 @@ export function TaskForm({ isOpen, onClose, onSubmit, initialData }: TaskFormPro
                 <FormItem>
                   <FormLabel>Description (Optional)</FormLabel>
                   <FormControl>
-                    <Textarea placeholder="Add more details about the task..." {...field} />
+                    <Textarea placeholder="Add more details about the task..." {...field} className={inputTextAreaBaseClass} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -152,6 +154,7 @@ export function TaskForm({ isOpen, onClose, onSubmit, initialData }: TaskFormPro
                             variant={"outline"}
                             className={cn(
                               "w-full justify-start text-left font-normal",
+                              inputTextAreaBaseClass,
                               !field.value && "text-muted-foreground"
                             )}
                           >
@@ -160,7 +163,10 @@ export function TaskForm({ isOpen, onClose, onSubmit, initialData }: TaskFormPro
                           </Button>
                         </FormControl>
                       </PopoverTrigger>
-                      <PopoverContent className="w-auto p-0" align="start">
+                      <PopoverContent 
+                        className="w-auto p-0 bg-popover/80 dark:bg-popover/70 backdrop-blur-md border-white/20 dark:border-neutral-700/30" 
+                        align="start"
+                      >
                         <Calendar
                           mode="single"
                           selected={field.value ?? undefined}
@@ -180,7 +186,7 @@ export function TaskForm({ isOpen, onClose, onSubmit, initialData }: TaskFormPro
                   <FormItem>
                     <FormLabel>Est. Time (Optional)</FormLabel>
                     <FormControl>
-                      <Input placeholder="E.g., 2 hours" {...field} />
+                      <Input placeholder="E.g., 2 hours" {...field} className={inputTextAreaBaseClass} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -195,11 +201,11 @@ export function TaskForm({ isOpen, onClose, onSubmit, initialData }: TaskFormPro
                   <FormLabel>Priority</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
-                      <SelectTrigger>
+                      <SelectTrigger className={inputTextAreaBaseClass}>
                         <SelectValue placeholder="Select priority" />
                       </SelectTrigger>
                     </FormControl>
-                    <SelectContent>
+                    <SelectContent className="bg-popover/80 dark:bg-popover/70 backdrop-blur-md border-white/20 dark:border-neutral-700/30">
                       <SelectItem value="high">High</SelectItem>
                       <SelectItem value="medium">Medium</SelectItem>
                       <SelectItem value="low">Low</SelectItem>

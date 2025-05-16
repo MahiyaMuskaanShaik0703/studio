@@ -4,99 +4,101 @@
 
 @layer base {
   :root {
-    /* Aurora Theme - Light Mode */
-    --background: 200 60% 96%; /* Very light, cool sky blue */
-    --foreground: 220 25% 30%; /* Dark, desaturated blue-grey for text */
+    /* Glassmorphism Theme - Light Mode */
+    --background: 200 60% 90%; /* Base background if gradient isn't used, cool light blue */
+    --foreground: 220 30% 25%; /* Dark, sharp text */
 
-    --card: 200 40% 99%; /* Almost white, with a hint of cool blue */
-    --card-foreground: 220 25% 25%; /* Darker text for cards */
+    --card: 0 0% 100%; /* Pure white base for cards (opacity applied in component) */
+    --card-foreground: 220 30% 20%; /* Darker text for cards */
 
-    --popover: 200 40% 98%;
+    --popover: 0 0% 100%; /* Pure white base for popovers */
     --popover-foreground: var(--card-foreground);
 
-    --primary: 160 60% 65%; /* Soft, pastel aurora green/teal */
-    --primary-foreground: 160 30% 20%; /* Dark text on light primary */
+    --primary: 170 65% 50%; /* Clear, vibrant Teal */
+    --primary-foreground: 200 100% 10%; /* Dark text on light primary */
 
-    --secondary: 210 30% 92%; /* Light, cool grey-blue */
-    --secondary-foreground: 220 20% 40%;
+    --secondary: 210 30% 88%; /* Light, cool grey-blue */
+    --secondary-foreground: 220 20% 35%;
 
-    --muted: 210 30% 95%; /* Very light muted cool grey */
-    --muted-foreground: 220 15% 55%;
+    --muted: 210 30% 92%; /* Very light muted cool grey */
+    --muted-foreground: 220 15% 50%;
 
-    --accent: 270 60% 75%; /* Soft, pastel aurora purple/pink */
-    --accent-foreground: 270 30% 25%; /* Dark text on light accent */
+    --accent: 280 65% 60%; /* Clear, vibrant Purple */
+    --accent-foreground: 280 100% 15%; /* Dark text on light accent */
 
-    --destructive: 0 70% 60%;
+    --destructive: 0 70% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 20% 88%; /* Light, cool grey border */
-    --input: 210 20% 90%; /* Slightly darker input border */
-    --ring: 160 60% 65%; /* Primary color for focus rings */
+    --border: 210 20% 75%; /* Base border color for non-glass elements */
+    /* For glass elements, use something like border-white/10 or border-neutral-200/20 */
+    --input: 210 20% 85%; 
+    --ring: 170 65% 55%; /* Primary color for focus rings */
 
-    --radius: 0.75rem;
+    --radius: 0.75rem; /* Soft rounded corners */
 
-    /* Light Mode Chart Colors - Inspired by softer aurora hues */
-    --chart-1: 150 55% 60%; /* Soft Green */
-    --chart-2: 180 50% 65%; /* Soft Teal */
-    --chart-3: 260 55% 70%; /* Soft Lavender */
-    --chart-4: 300 60% 75%; /* Soft Pink */
-    --chart-5: 200 50% 70%; /* Soft Sky Blue */
+    /* Chart Colors - Light Mode */
+    --chart-1: 150 60% 55%; 
+    --chart-2: 180 55% 60%; 
+    --chart-3: 260 60% 65%; 
+    --chart-4: 300 65% 70%; 
+    --chart-5: 200 55% 65%; 
     
-    --sidebar-background: 210 30% 92%;
-    --sidebar-foreground: 220 20% 40%;
-    --sidebar-border: 210 20% 85%;
-    --sidebar-primary: 160 60% 60%;
-    --sidebar-primary-foreground: 160 30% 15%;
-    --sidebar-accent: 270 60% 70%;
-    --sidebar-accent-foreground: 270 30% 20%;
-    --sidebar-ring: 160 60% 65%;
+    --sidebar-background: 210 40% 97%; /* Lighter sidebar */
+    --sidebar-foreground: 220 25% 30%;
+    --sidebar-border: 210 20% 88%;
+    --sidebar-primary: 170 60% 50%;
+    --sidebar-primary-foreground: 200 100% 5%;
+    --sidebar-accent: 280 60% 60%;
+    --sidebar-accent-foreground: 280 100% 10%;
+    --sidebar-ring: 170 60% 55%;
   }
 
   .dark {
-    /* Aurora Theme - Dark Mode */
-    --background: 240 30% 8%; /* Deep dark blue-purple (night sky) */
-    --foreground: 220 25% 92%; /* Light, soft grey/off-white for text */
+    /* Glassmorphism Theme - Dark Mode */
+    --background: 240 20% 10%; /* Deep dark blue/purple base for gradient */
+    --foreground: 220 20% 92%; /* Light, soft grey/off-white for text */
 
-    --card: 240 28% 12%; /* Slightly lighter dark blue-purple, or a deep muted aurora color */
-    --card-foreground: 220 20% 88%; 
+    --card: 240 10% 15%; /* Dark slate base for cards (opacity applied in component) */
+    --card-foreground: 220 15% 88%; 
 
-    --popover: 240 25% 15%; 
+    --popover: 240 10% 18%; /* Dark slate base for popovers */
     --popover-foreground: var(--card-foreground);
 
-    --primary: 170 70% 50%; /* Vibrant Teal/Green - main aurora glow */
-    --primary-foreground: 220 15% 95%; /* White text on primary */
+    --primary: 170 75% 55%; /* Vibrant Teal/Green - main glow */
+    --primary-foreground: 210 100% 95%; /* White text on primary */
 
-    --secondary: 230 25% 20%; /* Dark muted blue */
-    --secondary-foreground: 220 20% 80%;
+    --secondary: 230 15% 25%; /* Dark muted blue */
+    --secondary-foreground: 220 15% 75%;
 
-    --muted: 230 20% 15%; /* Very dark muted blue */
-    --muted-foreground: 220 15% 65%;
+    --muted: 230 10% 20%; /* Very dark muted blue */
+    --muted-foreground: 220 10% 60%;
 
-    --accent: 280 70% 65%; /* Vibrant Purple/Pink - secondary aurora glow */
-    --accent-foreground: 220 15% 95%; /* White text on accent */
+    --accent: 280 75% 68%; /* Vibrant Purple/Pink - secondary glow */
+    --accent-foreground: 280 100% 95%; /* White text on accent */
 
-    --destructive: 0 65% 55%; /* Standard destructive red, perhaps slightly desaturated */
+    --destructive: 0 60% 50%; 
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 20% 25%; /* Dark, subtle border */
-    --input: 240 18% 30%; /* Slightly more visible input border */
-    --ring: 170 70% 50%; /* Primary color for focus rings */
+    --border: 240 10% 30%; /* Base border for non-glass */
+    /* For glass elements, use something like border-white/10 or border-neutral-500/20 */
+    --input: 240 8% 35%; 
+    --ring: 170 75% 55%; 
     
-    /* Dark Mode Chart Colors - Vibrant aurora colors */
-    --chart-1: 150 70% 45%; /* Emerald Green */
-    --chart-2: 180 65% 50%; /* Bright Teal */
-    --chart-3: 270 70% 60%; /* Vivid Purple */
-    --chart-4: 320 75% 60%; /* Electric Pink */
-    --chart-5: 200 60% 55%; /* Luminous Blue */
+    /* Chart Colors - Dark Mode */
+    --chart-1: 150 70% 50%; 
+    --chart-2: 180 65% 55%; 
+    --chart-3: 270 70% 65%; 
+    --chart-4: 320 75% 65%; 
+    --chart-5: 200 60% 60%;
 
-    --sidebar-background: 240 28% 10%;
-    --sidebar-foreground: 220 20% 85%;
-    --sidebar-border: 240 20% 22%;
-    --sidebar-primary: 170 70% 55%;
-    --sidebar-primary-foreground: 220 10% 98%;
-    --sidebar-accent: 280 70% 70%;
-    --sidebar-accent-foreground: 220 10% 98%;
-    --sidebar-ring: 170 70% 50%;
+    --sidebar-background: 240 15% 12%; /* Darker sidebar */
+    --sidebar-foreground: 220 15% 85%;
+    --sidebar-border: 240 10% 25%;
+    --sidebar-primary: 170 70% 50%;
+    --sidebar-primary-foreground: 210 100% 98%;
+    --sidebar-accent: 280 70% 60%;
+    --sidebar-accent-foreground: 280 100% 98%;
+    --sidebar-ring: 170 70% 55%;
   }
 }
 
@@ -105,12 +107,26 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
-    /* For a more dynamic Aurora effect, you might consider a gradient or image background.
-       The current --background is a solid color.
-       Example for a subtle gradient (adjust to fit Aurora colors):
-       background-image: linear-gradient(to bottom, hsl(var(--background)) 70%, hsl(var(--primary) / 0.1));
-       background-attachment: fixed;
-    */
+    @apply text-foreground;
+    /* Apply a gradient background for the glassmorphism effect */
+    background-image: linear-gradient(to bottom right, hsl(200 70% 85%), hsl(270 70% 90%));
+    background-attachment: fixed;
+  }
+
+  .dark body {
+    background-image: linear-gradient(to bottom right, hsl(240 30% 10%), hsl(280 40% 15%));
   }
 }
+
+/*
+  Note on Glassmorphism:
+  To achieve the frosted glass effect on components (like Cards, Dialogs, etc.),
+  you need to apply Tailwind utility classes directly to those components.
+  Key classes include:
+  - `bg-card` (or another background)
+  - `bg-opacity-[percentage]` (e.g., `bg-opacity-50` or `dark:bg-opacity-40`)
+  - `backdrop-blur-lg` (or `md`, `sm`, `xl`)
+  - `shadow-xl` (or `shadow-2xl`)
+  - A subtle border, e.g., `border border-white/20` (light mode on dark bg) or `dark:border-neutral-700/30` (dark mode).
+  Adjust opacity and blur levels to your preference.
+*/
