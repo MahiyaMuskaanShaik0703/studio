@@ -55,8 +55,10 @@ interface TaskFormProps {
   initialData?: Task | null;
 }
 
-// Use theme variables for inputs/textareas, ensuring they are light
-const inputTextAreaBaseClass = "bg-background/50 dark:bg-background/30 border border-input focus:border-primary/50";
+// This class will now rely on the CSS variables from .task-form-bright-theme
+// for its background and border colors. The `bg-background/50` will use the
+// bright theme's --background.
+const inputTextAreaBaseClass = "bg-background/50 border border-input focus:border-primary/50";
 
 export function TaskForm({ isOpen, onClose, onSubmit, initialData }: TaskFormProps) {
   const form = useForm<TaskFormValues>({
@@ -108,8 +110,8 @@ export function TaskForm({ isOpen, onClose, onSubmit, initialData }: TaskFormPro
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <DialogContent className={cn(
-        "sm:max-w-[480px] bg-card bg-opacity-70 dark:bg-opacity-50 backdrop-blur-xl shadow-2xl border border-white/10 dark:border-white/5",
-        "task-form-bright-theme" // Apply the bright theme class here
+        "sm:max-w-[480px] shadow-2xl", // Rely on theme for bg-card, border-border
+        "task-form-bright-theme" 
         )}>
         <DialogHeader>
           <DialogTitle>{initialData ? "Edit Task" : "Add New Task"}</DialogTitle>
@@ -169,7 +171,7 @@ export function TaskForm({ isOpen, onClose, onSubmit, initialData }: TaskFormPro
                         </FormControl>
                       </PopoverTrigger>
                       <PopoverContent 
-                        className="w-auto p-0 bg-popover/80 dark:bg-popover/70 backdrop-blur-md border border-border" 
+                        className="w-auto p-0 bg-popover/80 backdrop-blur-md border border-border" // Removed dark:bg-popover/70
                         align="start"
                       >
                         <Calendar
@@ -210,7 +212,7 @@ export function TaskForm({ isOpen, onClose, onSubmit, initialData }: TaskFormPro
                         <SelectValue placeholder="Select priority" />
                       </SelectTrigger>
                     </FormControl>
-                    <SelectContent className="bg-popover/80 dark:bg-popover/70 backdrop-blur-md border border-border">
+                    <SelectContent className="bg-popover/80 backdrop-blur-md border border-border"> {/* Removed dark:bg-popover/70 */}
                       <SelectItem value="high">High</SelectItem>
                       <SelectItem value="medium">Medium</SelectItem>
                       <SelectItem value="low">Low</SelectItem>
