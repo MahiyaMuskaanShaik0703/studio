@@ -55,7 +55,7 @@ interface TaskFormProps {
   initialData?: Task | null;
 }
 
-// Use pastel theme variables for inputs/textareas, ensuring they are light
+// Use theme variables for inputs/textareas, ensuring they are light
 const inputTextAreaBaseClass = "bg-background/50 dark:bg-background/30 border border-input focus:border-primary/50";
 
 export function TaskForm({ isOpen, onClose, onSubmit, initialData }: TaskFormProps) {
@@ -109,7 +109,7 @@ export function TaskForm({ isOpen, onClose, onSubmit, initialData }: TaskFormPro
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <DialogContent className={cn(
         "sm:max-w-[480px] bg-card bg-opacity-70 dark:bg-opacity-50 backdrop-blur-xl shadow-2xl border border-white/10 dark:border-white/5",
-        "task-form-pastel-theme" // Apply the pastel theme class here
+        "task-form-bright-theme" // Apply the bright theme class here
         )}>
         <DialogHeader>
           <DialogTitle>{initialData ? "Edit Task" : "Add New Task"}</DialogTitle>
@@ -159,7 +159,7 @@ export function TaskForm({ isOpen, onClose, onSubmit, initialData }: TaskFormPro
                             variant={"outline"}
                             className={cn(
                               "w-full justify-start text-left font-normal",
-                              inputTextAreaBaseClass, // Use the consistent light class
+                              inputTextAreaBaseClass, 
                               !field.value && "text-muted-foreground"
                             )}
                           >
@@ -169,7 +169,6 @@ export function TaskForm({ isOpen, onClose, onSubmit, initialData }: TaskFormPro
                         </FormControl>
                       </PopoverTrigger>
                       <PopoverContent 
-                        // Ensure popover uses light pastel theme variables for bg and border
                         className="w-auto p-0 bg-popover/80 dark:bg-popover/70 backdrop-blur-md border border-border" 
                         align="start"
                       >
@@ -207,12 +206,10 @@ export function TaskForm({ isOpen, onClose, onSubmit, initialData }: TaskFormPro
                   <FormLabel>Priority</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
-                      {/* Trigger also uses inputTextAreaBaseClass for consistency */}
                       <SelectTrigger className={inputTextAreaBaseClass}>
                         <SelectValue placeholder="Select priority" />
                       </SelectTrigger>
                     </FormControl>
-                    {/* Ensure select content uses light pastel theme variables */}
                     <SelectContent className="bg-popover/80 dark:bg-popover/70 backdrop-blur-md border border-border">
                       <SelectItem value="high">High</SelectItem>
                       <SelectItem value="medium">Medium</SelectItem>
@@ -235,4 +232,3 @@ export function TaskForm({ isOpen, onClose, onSubmit, initialData }: TaskFormPro
     </Dialog>
   );
 }
-
