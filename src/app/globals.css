@@ -100,6 +100,37 @@
     --sidebar-accent-foreground: 280 100% 98%;
     --sidebar-ring: 170 70% 55%;
   }
+
+  /* Pastel theme for the Task Form Dialog */
+  .task-form-pastel-theme {
+    --background: hsl(240, 60%, 97%); /* Very light pastel blue/lavender for general component backgrounds */
+    --foreground: hsl(240, 25%, 40%); /* Darker muted blue/purple for text */
+
+    --card: hsl(260, 70%, 94%); /* Soft pastel lavender for dialog body */
+    --card-foreground: hsl(260, 25%, 38%); /* Darker muted lavender for dialog text */
+
+    --popover: hsl(260, 70%, 94%); /* Same as card for popovers like calendar */
+    --popover-foreground: hsl(260, 25%, 38%); /* Same as card text */
+
+    --primary: hsl(175, 55%, 75%); /* Soft pastel teal for primary actions */
+    --primary-foreground: hsl(175, 50%, 20%); /* Dark teal for text on primary actions */
+
+    --secondary: hsl(30, 65%, 92%); /* Soft pastel peach for secondary elements */
+    --secondary-foreground: hsl(30, 35%, 35%); /* Darker peach for text */
+
+    --muted: hsl(220, 40%, 94%); /* Very light muted pastel blue for less prominent elements */
+    --muted-foreground: hsl(220, 20%, 55%); /* Greyish blue for muted text */
+
+    --accent: hsl(320, 70%, 85%); /* Soft pastel pink for accents like focus rings */
+    --accent-foreground: hsl(320, 45%, 35%); /* Dark pink for text on accent elements */
+
+    --destructive: hsl(0, 65%, 82%); /* Soft pastel red */
+    --destructive-foreground: hsl(0, 0%, 100%); /* White */
+
+    --border: hsl(240, 30%, 88%); /* Light pastel grey-blue border */
+    --input: hsl(240, 60%, 97%); /* Same as background for input fields */
+    --ring: hsl(175, 55%, 70%); /* Slightly more vibrant pastel teal for focus rings */
+  }
 }
 
 @layer base {
@@ -110,10 +141,12 @@
     @apply text-foreground;
     /* Apply a gradient background for the glassmorphism effect */
     background-image: linear-gradient(to bottom right, hsl(200 70% 85%), hsl(270 70% 90%));
+    /* background-image: linear-gradient(to bottom right, hsl(var(--background-gradient-start)), hsl(var(--background-gradient-end))); */
     background-attachment: fixed;
   }
 
   .dark body {
+    /* background-image: linear-gradient(to bottom right, hsl(var(--background-gradient-start-dark)), hsl(var(--background-gradient-end-dark))); */
     background-image: linear-gradient(to bottom right, hsl(240 30% 10%), hsl(280 40% 15%));
   }
 }

@@ -105,7 +105,10 @@ export function TaskForm({ isOpen, onClose, onSubmit, initialData }: TaskFormPro
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="sm:max-w-[480px] bg-card bg-opacity-70 dark:bg-opacity-50 backdrop-blur-xl shadow-2xl border border-white/10 dark:border-white/5">
+      <DialogContent className={cn(
+        "sm:max-w-[480px] bg-card bg-opacity-70 dark:bg-opacity-50 backdrop-blur-xl shadow-2xl border border-white/10 dark:border-white/5",
+        "task-form-pastel-theme" // Apply the pastel theme class here
+        )}>
         <DialogHeader>
           <DialogTitle>{initialData ? "Edit Task" : "Add New Task"}</DialogTitle>
           <DialogDescription>
