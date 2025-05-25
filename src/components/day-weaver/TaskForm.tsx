@@ -55,9 +55,8 @@ interface TaskFormProps {
   initialData?: Task | null;
 }
 
-// This class will now rely on the CSS variables from .task-form-bright-theme
-// for its background and border colors. The `bg-background/50` will use the
-// bright theme's --background.
+// This class will now rely on the CSS variables from .task-form-pastel-theme
+// for its background and border colors.
 const inputTextAreaBaseClass = "bg-background/50 border border-input focus:border-primary/50";
 
 export function TaskForm({ isOpen, onClose, onSubmit, initialData }: TaskFormProps) {
@@ -110,8 +109,8 @@ export function TaskForm({ isOpen, onClose, onSubmit, initialData }: TaskFormPro
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <DialogContent className={cn(
-        "sm:max-w-[480px] shadow-2xl", // Rely on theme for bg-card, border-border
-        "task-form-bright-theme" 
+        "sm:max-w-[480px] shadow-2xl", 
+        "task-form-pastel-theme" // Apply the pastel theme
         )}>
         <DialogHeader>
           <DialogTitle>{initialData ? "Edit Task" : "Add New Task"}</DialogTitle>
@@ -171,7 +170,7 @@ export function TaskForm({ isOpen, onClose, onSubmit, initialData }: TaskFormPro
                         </FormControl>
                       </PopoverTrigger>
                       <PopoverContent 
-                        className="w-auto p-0 bg-popover/80 backdrop-blur-md border border-border" // Removed dark:bg-popover/70
+                        className="w-auto p-0 bg-popover/80 backdrop-blur-md border border-border"
                         align="start"
                       >
                         <Calendar
@@ -212,7 +211,7 @@ export function TaskForm({ isOpen, onClose, onSubmit, initialData }: TaskFormPro
                         <SelectValue placeholder="Select priority" />
                       </SelectTrigger>
                     </FormControl>
-                    <SelectContent className="bg-popover/80 backdrop-blur-md border border-border"> {/* Removed dark:bg-popover/70 */}
+                    <SelectContent className="bg-popover/80 backdrop-blur-md border border-border">
                       <SelectItem value="high">High</SelectItem>
                       <SelectItem value="medium">Medium</SelectItem>
                       <SelectItem value="low">Low</SelectItem>

@@ -101,35 +101,35 @@
     --sidebar-ring: 170 70% 55%;
   }
 
-  /* Bright theme for the Task Form Dialog */
-  .task-form-bright-theme {
-    --background: hsl(220, 30%, 96%); /* Very light cool grey for general component backgrounds */
-    --foreground: hsl(220, 25%, 20%); /* Dark grey-blue for text */
+  /* Pastel theme for the Task Form Dialog */
+  .task-form-pastel-theme {
+    --background: hsl(210, 50%, 96%); /* Soft light blue for general component backgrounds */
+    --foreground: hsl(210, 20%, 45%); /* Muted dark blue-grey for text */
 
     --card: hsl(0, 0%, 100%); /* White for dialog body */
-    --card-foreground: hsl(220, 25%, 15%); /* Darker grey-blue for dialog text */
+    --card-foreground: hsl(210, 20%, 40%); /* Slightly darker muted text for dialog text */
 
     --popover: hsl(0, 0%, 100%); /* White for popovers like calendar */
-    --popover-foreground: hsl(220, 25%, 15%); /* Darker grey-blue for popover text */
+    --popover-foreground: hsl(210, 20%, 40%); /* Muted dark blue-grey for popover text */
 
-    --primary: hsl(200, 85%, 50%); /* Bright, vibrant cyan-blue for primary actions */
-    --primary-foreground: hsl(0, 0%, 100%); /* White text on primary actions */
+    --primary: hsl(170, 60%, 75%); /* Pastel teal/mint for primary actions */
+    --primary-foreground: hsl(170, 30%, 25%); /* Darker text on primary actions */
 
-    --secondary: hsl(45, 100%, 60%); /* Bright yellow for secondary elements */
-    --secondary-foreground: hsl(45, 60%, 20%); /* Dark brown/yellow for text */
+    --secondary: hsl(300, 60%, 85%); /* Pastel lavender for secondary elements */
+    --secondary-foreground: hsl(300, 30%, 35%); /* Darker text for secondary */
 
-    --muted: hsl(220, 20%, 92%); /* Light grey for less prominent elements */
-    --muted-foreground: hsl(220, 15%, 50%); /* Medium grey for muted text */
+    --muted: hsl(210, 40%, 92%); /* Very light grey-blue for less prominent elements */
+    --muted-foreground: hsl(210, 20%, 60%); /* Medium grey for muted text */
 
-    --accent: hsl(330, 90%, 60%); /* Bright pink/magenta for accents like focus rings */
-    --accent-foreground: hsl(0, 0%, 100%); /* White text on accent elements */
+    --accent: hsl(30, 100%, 80%); /* Pastel peach/soft orange for accents like focus rings */
+    --accent-foreground: hsl(30, 50%, 30%); /* Darker text on accent elements */
 
-    --destructive: hsl(0, 80%, 60%); /* Bright red */
+    --destructive: hsl(0, 70%, 80%); /* Pastel red/pink */
     --destructive-foreground: hsl(0, 0%, 100%); /* White */
 
-    --border: hsl(220, 20%, 85%); /* Slightly darker light grey border */
-    --input: hsl(220, 30%, 98%); /* Very light grey for input backgrounds, slightly off-white */
-    --ring: hsl(200, 85%, 55%); /* Slightly more vibrant cyan-blue for focus rings */
+    --border: hsl(210, 30%, 88%); /* Light grey-blue border */
+    --input: hsl(210, 50%, 98%); /* Very light off-white/blue for input backgrounds */
+    --ring: hsl(170, 60%, 70%); /* Pastel teal for focus rings */
   }
 }
 
