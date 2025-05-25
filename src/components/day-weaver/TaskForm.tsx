@@ -1,3 +1,4 @@
+
 "use client";
 
 import * as React from "react";
@@ -54,7 +55,8 @@ interface TaskFormProps {
   initialData?: Task | null;
 }
 
-const inputTextAreaBaseClass = "bg-background/50 dark:bg-background/30 border-white/20 dark:border-neutral-700/40 focus:border-primary/50";
+// Use pastel theme variables for inputs/textareas, ensuring they are light
+const inputTextAreaBaseClass = "bg-background/50 dark:bg-background/30 border border-input focus:border-primary/50";
 
 export function TaskForm({ isOpen, onClose, onSubmit, initialData }: TaskFormProps) {
   const form = useForm<TaskFormValues>({
@@ -157,7 +159,7 @@ export function TaskForm({ isOpen, onClose, onSubmit, initialData }: TaskFormPro
                             variant={"outline"}
                             className={cn(
                               "w-full justify-start text-left font-normal",
-                              inputTextAreaBaseClass,
+                              inputTextAreaBaseClass, // Use the consistent light class
                               !field.value && "text-muted-foreground"
                             )}
                           >
@@ -167,7 +169,8 @@ export function TaskForm({ isOpen, onClose, onSubmit, initialData }: TaskFormPro
                         </FormControl>
                       </PopoverTrigger>
                       <PopoverContent 
-                        className="w-auto p-0 bg-popover/80 dark:bg-popover/70 backdrop-blur-md border-white/20 dark:border-neutral-700/30" 
+                        // Ensure popover uses light pastel theme variables for bg and border
+                        className="w-auto p-0 bg-popover/80 dark:bg-popover/70 backdrop-blur-md border border-border" 
                         align="start"
                       >
                         <Calendar
@@ -204,11 +207,13 @@ export function TaskForm({ isOpen, onClose, onSubmit, initialData }: TaskFormPro
                   <FormLabel>Priority</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
+                      {/* Trigger also uses inputTextAreaBaseClass for consistency */}
                       <SelectTrigger className={inputTextAreaBaseClass}>
                         <SelectValue placeholder="Select priority" />
                       </SelectTrigger>
                     </FormControl>
-                    <SelectContent className="bg-popover/80 dark:bg-popover/70 backdrop-blur-md border-white/20 dark:border-neutral-700/30">
+                    {/* Ensure select content uses light pastel theme variables */}
+                    <SelectContent className="bg-popover/80 dark:bg-popover/70 backdrop-blur-md border border-border">
                       <SelectItem value="high">High</SelectItem>
                       <SelectItem value="medium">Medium</SelectItem>
                       <SelectItem value="low">Low</SelectItem>
@@ -230,3 +235,4 @@ export function TaskForm({ isOpen, onClose, onSubmit, initialData }: TaskFormPro
     </Dialog>
   );
 }
+
